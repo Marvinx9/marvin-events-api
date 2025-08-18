@@ -1,0 +1,28 @@
+spring:
+  server:
+    port: 8080
+    shutdown: graceful
+  application:
+    name: events
+    default_schema: events
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+    default_schema: events
+    hikari:
+      maximum-pool-size: ${HIKARI_POOL_SIZE:2}
+  flyway:
+    default_schema: events
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/postgres
+    user: postgres
+    password: 123456
+    locations: classpath:db/migration
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: events
+        format_sql: true

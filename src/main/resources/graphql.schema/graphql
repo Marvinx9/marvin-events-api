@@ -1,0 +1,14 @@
+type Teacher {
+    id: ID!
+    name: String!
+    bio: BIO!
+    avatar_url: String!
+}
+
+type Query {
+    teachers: [Teacher!]!
+}
+
+type Mutation {
+    createTeacher(name: String!, bio: String!, avatar_url: String!): Teacher!
+}
