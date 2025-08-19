@@ -7,15 +7,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
+@Table(name="subscribe", schema="events")
 @AllArgsConstructor
-@Table(name = "teacher", schema = "events")
-@Data
-public class Teacher {
+@NoArgsConstructor
+public class Subscriber {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -24,9 +22,6 @@ public class Teacher {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "bio")
-    private String bio;
-
-    @Column(name = "avatar_url")
-    private String avatarUrl;
+    @Column(name = "email")
+    private String email;
 }
