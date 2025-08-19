@@ -1,4 +1,4 @@
-type Teacher {
+type teacher {
     id: ID!
     name: String!
     bio: BIO!
@@ -6,9 +6,9 @@ type Teacher {
 }
 
 type Query {
-    teachers: [Teacher!]!
+    teachers: [teacher!]!
 }
 
 type Mutation {
-    createTeacher(name: String!, bio: String!, avatar_url: String!): Teacher!
+    createTeacher(name: String!, bio: String!, avatar_url: String!): teacher!
 }

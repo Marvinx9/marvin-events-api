@@ -3,9 +3,12 @@ package com.events.entities;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "teacher")
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "teacher", schema = "events")
 @Data
 public class Teacher {
     @Id

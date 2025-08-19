@@ -2,17 +2,15 @@ package com.events.service;
 
 import com.events.entities.Teacher;
 import com.events.repository.TeacherRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class TeacherService {
     private final TeacherRepository teacherRepository;
-
-    public TeacherService(TeacherRepository teacherRepository) {
-        this.teacherRepository = teacherRepository;
-    }
 
     public List<Teacher> list() {
         return teacherRepository.findAll();

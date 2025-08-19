@@ -1,9 +1,7 @@
 package com.events.controller;
 
 import com.events.entities.Teacher;
-import com.events.repository.TeacherRepository;
 import com.events.service.TeacherService;
-import lombok.AllArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -20,7 +18,9 @@ public class GraphQLController {
     }
 
     @QueryMapping
-    public List<Teacher> listTeacher() {return teacherService.list();}
+    public List<Teacher> listTeacher() {
+        return teacherService.list();
+    }
 
     @MutationMapping
     public Teacher createUser(@Argument String name, @Argument String bio, @Argument String avatar_url) {
