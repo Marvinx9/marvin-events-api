@@ -1,0 +1,10 @@
+type teacher {
+  id: ID
+  name: String
+  bio: String
+  avatar_url: String
+}
+
+type Query {
+  listTeacher: [teacher]
+}

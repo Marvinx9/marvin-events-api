@@ -1,4 +1,4 @@
-create schema events;
+-- create schema events;
 
 create table events.teacher (
 	id serial primary key,

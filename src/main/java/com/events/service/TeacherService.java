@@ -1,11 +1,13 @@
 package com.events.service;
 
-import com.events.entities.Teacher;
-import com.events.repository.TeacherRepository;
-import lombok.AllArgsConstructor;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.events.entities.Teacher;
+import com.events.repository.TeacherRepository;
+
+import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
