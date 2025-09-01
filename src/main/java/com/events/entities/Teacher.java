@@ -6,13 +6,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "teacher", schema = "events")
 @Data
 public class Teacher {
@@ -29,4 +27,10 @@ public class Teacher {
 
     @Column(name = "avatar_url")
     private String avatarUrl;
+
+    public Teacher(String name, String bio, String avatarUrl) {
+        this.name = name;
+        this.bio = bio;
+        this.avatarUrl = avatarUrl;
+    }
 }

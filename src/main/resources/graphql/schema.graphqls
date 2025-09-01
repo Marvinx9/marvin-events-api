@@ -2,9 +2,20 @@ type teacher {
   id: ID
   name: String
   bio: String
-  avatar_url: String
+  avatarUrl: String
+}
+
+type subscriber {
+  id: ID
+  name: String
+  email: String
 }
 
 type Query {
   listTeacher: [teacher]
+  findTeacher(id: ID!): teacher
+}
+
+type Mutation {
+  createTeacher(name: String!, bio: String, avatar_url: String): teacher
 }
