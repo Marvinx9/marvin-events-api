@@ -2,7 +2,7 @@ type teacher {
   id: ID
   name: String
   bio: String
-  avatarUrl: String
+  avatar_url: String
 }
 
 type subscriber {

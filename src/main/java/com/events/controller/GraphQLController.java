@@ -1,14 +1,13 @@
 package com.events.controller;
 
-import java.util.List;
-
+import com.events.dto.TeacherOutputDto;
+import com.events.service.TeacherService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
-import com.events.entities.Teacher;
-import com.events.service.TeacherService;
+import java.util.List;
 
 @Controller
 public class GraphQLController {
@@ -19,17 +18,17 @@ public class GraphQLController {
     }
 
     @QueryMapping
-    public List<Teacher> listTeacher() {
+    public List<TeacherOutputDto> listTeacher() {
         return teacherService.list();
     }
 
     @QueryMapping
-    public Teacher findTeacher(@Argument Long id) {
+    public TeacherOutputDto findTeacher(@Argument Long id) {
         return teacherService.find(id);
     }
 
     @MutationMapping
-    public Teacher createTeacher(@Argument String name, @Argument String bio, @Argument String avatar_url) {
+    public TeacherOutputDto createTeacher(@Argument String name, @Argument String bio, @Argument String avatar_url) {
         return teacherService.create(name, bio, avatar_url);
     }
 }
