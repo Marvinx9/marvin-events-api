@@ -1,0 +1,29 @@
+spring:
+  server:
+    port: 8080
+    shutdown: graceful
+  application:
+    name: events
+  datasource:
+    url: jdbc:postgresql://dpg-d2ht4lu3jp1c738of3e0-a.virginia-postgres.render.com/marvin_rh14
+    username: marvin
+    password: 8xJBRspDN02TagNs09VQypNBjHE9rRrY
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: ${HIKARI_POOL_SIZE:2}
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://dpg-d2ht4lu3jp1c738of3e0-a.virginia-postgres.render.com/marvin_rh14
+    user: marvin
+    password: 8xJBRspDN02TagNs09VQypNBjHE9rRrY
+    default_schema: events
+    locations: classpath:db/migration
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
