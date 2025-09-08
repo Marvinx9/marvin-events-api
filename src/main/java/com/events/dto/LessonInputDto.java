@@ -7,8 +7,7 @@ import com.events.enums.LessonType;
 import lombok.Data;
 
 @Data
-public class LessonOutputDto {
-    private Long id;
+public class LessonInputDto {
     private String title;
     private String slug;
     private String description;

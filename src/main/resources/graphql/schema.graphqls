@@ -11,11 +11,39 @@ type subscriber {
   email: String
 }
 
+enum ENUM_LESSON {
+  LIVE
+  RECORD
+}
+
+type lesson {
+  id: ID
+  title: String
+  slug: String
+  description: String
+  videoId: String
+  lessonType: ENUM_LESSON
+  availableAt: Date
+  challengeId: ID
+  teacherId: ID
+}
+
 type Query {
   listTeacher: [teacher]
+  listLesson: [lesson]
   findTeacher(id: ID!): teacher
 }
 
 type Mutation {
   createTeacher(name: String!, bio: String, avatar_url: String): teacher
+  createLesson(
+    title: String
+    slug: String
+    description: String
+    videoId: String
+    lessonType: ENUM_LESSON
+    availableAt: Date
+    challengeId: ID
+    teacherId: ID
+  ): lesson
 }
