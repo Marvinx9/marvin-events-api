@@ -23,7 +23,7 @@ type lesson {
   description: String
   video_id: String
   lesson_type: ENUM_LESSON
-  available_at: Date
+  available_at: String
   challenge_id: ID
   teacher_id: ID
 }
@@ -42,7 +42,7 @@ type Mutation {
     description: String
     video_id: String
     lesson_type: ENUM_LESSON
-    available_at: Date
+    available_at: String
     challenge_id: ID
     teacher_id: ID
   ): lesson
