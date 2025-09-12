@@ -1,18 +1,17 @@
 package com.events.controller;
 
-import com.events.dto.LessonOutputDto;
-import com.events.dto.TeacherOutputDto;
-import com.events.service.LessonService;
-import com.events.service.TeacherService;
+import java.util.List;
 
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
-import java.util.List;
-
 import com.events.dto.LessonInputDto;
+import com.events.dto.LessonOutputDto;
+import com.events.dto.TeacherOutputDto;
+import com.events.service.LessonService;
+import com.events.service.TeacherService;
 
 @Controller
 public class GraphQLController {
@@ -45,7 +44,7 @@ public class GraphQLController {
     }
 
     @MutationMapping
-    public LessonOutputDto createLesson(@Argument("lesson") LessonInputDto input) {
-        return lessonService.
+    public LessonOutputDto createLesson(@Argument("lesson") LessonInputDto lessonInputDto) {
+        return lessonService.create(lessonInputDto);
     }
 }

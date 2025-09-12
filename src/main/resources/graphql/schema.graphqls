@@ -21,11 +21,11 @@ type lesson {
   title: String
   slug: String
   description: String
-  videoId: String
-  lessonType: ENUM_LESSON
-  availableAt: Date
-  challengeId: ID
-  teacherId: ID
+  video_id: String
+  lesson_type: ENUM_LESSON
+  available_at: Date
+  challenge_id: ID
+  teacher_id: ID
 }
 
 type Query {
@@ -40,10 +40,10 @@ type Mutation {
     title: String
     slug: String
     description: String
-    videoId: String
-    lessonType: ENUM_LESSON
-    availableAt: Date
-    challengeId: ID
-    teacherId: ID
+    video_id: String
+    lesson_type: ENUM_LESSON
+    available_at: Date
+    challenge_id: ID
+    teacher_id: ID
   ): lesson
 }
