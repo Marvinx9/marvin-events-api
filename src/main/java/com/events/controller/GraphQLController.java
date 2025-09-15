@@ -8,8 +8,8 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
 import com.events.dto.LessonInputDto;
-import com.events.dto.LessonOutputDto;
 import com.events.dto.TeacherOutputDto;
+import com.events.entities.Lesson;
 import com.events.service.LessonService;
 import com.events.service.TeacherService;
 
@@ -29,7 +29,7 @@ public class GraphQLController {
     }
 
     @QueryMapping
-    public List<LessonOutputDto> listLesson() {
+    public List<Lesson> listLesson() {
         return lessonService.list();
     }
 
@@ -44,7 +44,7 @@ public class GraphQLController {
     }
 
     @MutationMapping
-    public LessonOutputDto createLesson(@Argument("lesson") LessonInputDto lessonInputDto) {
+    public Lesson createLesson(@Argument("lesson") LessonInputDto lessonInputDto) {
         return lessonService.create(lessonInputDto);
     }
 }

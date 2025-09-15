@@ -9,7 +9,7 @@ create table events.lesson (
 	available_at timestamptz,
 	challenge_id integer,
 	teacher_id integer,
-	lesson_type ENUM_LESSON,
+	lesson_type varchar,
 	foreign key (challenge_id) references challenge(id) on delete cascade,
 	foreign key (teacher_id) references teacher(id) on delete cascade
 );

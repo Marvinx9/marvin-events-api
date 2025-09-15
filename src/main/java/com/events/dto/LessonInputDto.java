@@ -20,7 +20,7 @@ public class LessonInputDto {
 
     private String description;
 
-    private Long video_id;
+    private String video_id;
 
     private Instant available_at;
 
