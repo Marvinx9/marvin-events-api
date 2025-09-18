@@ -8,8 +8,9 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
 import com.events.dto.LessonInputDto;
+import com.events.dto.LessonOutputDto;
+import com.events.dto.TeacherInputDto;
 import com.events.dto.TeacherOutputDto;
-import com.events.entities.Lesson;
 import com.events.service.LessonService;
 import com.events.service.TeacherService;
 
@@ -29,22 +30,27 @@ public class GraphQLController {
     }
 
     @QueryMapping
-    public List<Lesson> listLesson() {
-        return lessonService.list();
-    }
-
-    @QueryMapping
     public TeacherOutputDto findTeacher(@Argument Long id) {
         return teacherService.find(id);
     }
 
     @MutationMapping
-    public TeacherOutputDto createTeacher(@Argument String name, @Argument String bio, @Argument String avatar_url) {
-        return teacherService.create(name, bio, avatar_url);
+    public TeacherOutputDto createTeacher(@Argument("teacher") TeacherInputDto teacherInputDto) {
+        return teacherService.create(teacherInputDto);
+    }
+
+    @QueryMapping
+    public List<LessonOutputDto> listLesson() {
+        return lessonService.list();
+    }
+
+    @QueryMapping
+    public LessonOutputDto findLesson(@Argument Long id) {
+        return lessonService.find(id);
     }
 
     @MutationMapping
-    public Lesson createLesson(@Argument("lesson") LessonInputDto lessonInputDto) {
+    public LessonOutputDto createLesson(@Argument("lesson") LessonInputDto lessonInputDto) {
         return lessonService.create(lessonInputDto);
     }
 }

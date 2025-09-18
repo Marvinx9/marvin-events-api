@@ -30,8 +30,9 @@ type lesson {
 
 type Query {
   listTeacher: [teacher]
-  listLesson: [lesson]
   findTeacher(id: ID!): teacher
+  listLesson: [lesson]
+  findLesson(id: ID!): lesson
 }
 
 type Mutation {

@@ -1,14 +1,17 @@
 package com.events.service;
 
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.events.dto.TeacherInputDto;
 import com.events.dto.TeacherOutputDto;
 import com.events.entities.Teacher;
 import com.events.exception.NotFound;
 import com.events.mapper.TeacherMapper;
 import com.events.repository.TeacherRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
@@ -25,8 +28,8 @@ public class TeacherService {
         return teacherMapper.paraDto(teacher);
     }
 
-    public TeacherOutputDto create(String name, String bio, String avatar_url) {
-        Teacher teacher = teacherRepository.save(new Teacher(name, bio, avatar_url));
+    public TeacherOutputDto create(TeacherInputDto teacherInputDto) {
+        Teacher teacher = teacherRepository.save(teacherMapper.paraEntidade(teacherInputDto));
         return teacherMapper.paraDto(teacher);
     }
 }

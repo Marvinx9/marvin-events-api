@@ -8,12 +8,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,25 +40,23 @@ public class Lesson {
     @Column(name = "available_at")
     private Instant availableAt;
 
-    @ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn(name= "challenge_id")
-    private Challenge challenge;
+    @Column(name = "challenge_id")
+    private Long challengeId;
 
-    @ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn(name= "teacher_id")
-    private Teacher teacher;
+    @Column(name = "teacher_id")
+    private Long teacherId;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "lesson_type")
     private LessonType lessonType;
 
-    public Lesson( String title, String slug, String description, String videoId, Instant availableAt, Teacher teacher, Challenge challenge, LessonType lessonType) {
+    public Lesson( String title, String slug, String description, String videoId, Instant availableAt, Long teacherId, Long challengeId, LessonType lessonType) {
         this.availableAt = availableAt;
-        this.challenge = challenge;
+        this.challengeId = challengeId;
         this.description = description;
         this.lessonType = lessonType;
         this.slug = slug;
-        this.teacher = teacher;
+        this.teacherId = teacherId;
         this.title = title;
         this.videoId = videoId;
     }

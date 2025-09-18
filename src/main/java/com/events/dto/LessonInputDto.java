@@ -18,16 +18,23 @@ public class LessonInputDto {
     @NotBlank
     private String slug;
 
+    @NotNull
+    @NotBlank
     private String description;
 
+    @NotNull
+    @NotBlank
     private String video_id;
 
     private Instant available_at;
 
+    @NotNull
     private Long challenge_id;
 
     @NotNull
     private Long teacher_id;
 
+    @NotNull
+    @NotBlank
     private LessonType lesson_type;
 }
