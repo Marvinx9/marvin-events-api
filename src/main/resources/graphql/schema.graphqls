@@ -11,6 +11,11 @@ type subscriber {
   email: String
 }
 
+type challenge {
+  id: ID
+  url: String
+}
+
 enum ENUM_LESSON {
   LIVE
   RECORD
@@ -24,8 +29,8 @@ type lesson {
   video_id: String
   lesson_type: ENUM_LESSON
   available_at: String
-  challenge_id: ID
-  teacher_id: ID
+  challenge: challenge
+  teacher: teacher
 }
 
 type Query {
@@ -33,6 +38,7 @@ type Query {
   findTeacher(id: ID!): teacher
   listLesson: [lesson]
   findLesson(id: ID!): lesson
+  findLessonBySlug(slug: String!): lesson
 }
 
 type Mutation {

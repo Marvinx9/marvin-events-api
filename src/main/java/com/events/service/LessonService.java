@@ -19,13 +19,16 @@ public class LessonService {
     private final LessonRepository lessonRepository;
     private final LessonMapper lessonMapper;
 
-    public List<LessonOutputDto> list() {
-        return lessonRepository.findAll().stream().map(lessonMapper::paraDto).toList();
+    public List<Lesson> list() {
+        return lessonRepository.findAll();
     }
 
-     public LessonOutputDto find(Long id) {
-        Lesson lesson = lessonRepository.findById(id).orElseThrow(() -> new NotFound("Lesson not found, id: " + id));
-        return lessonMapper.paraDto(lesson);
+     public Lesson find(Long id) {
+        return lessonRepository.findById(id).orElseThrow(() -> new NotFound("Lesson not found, id: " + id));
+    }
+
+    public Lesson findBySlug(String slug) {
+        return lessonRepository.findBySlug(slug).orElseThrow(() -> new NotFound("Lesson not found, slug: " + slug));
     }
 
     public LessonOutputDto create(LessonInputDto lessonInputDto) {

@@ -2,6 +2,7 @@ package com.events.controller;
 
 import java.util.List;
 
+import com.events.entities.Lesson;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -40,13 +41,18 @@ public class GraphQLController {
     }
 
     @QueryMapping
-    public List<LessonOutputDto> listLesson() {
+    public List<Lesson> listLesson() {
         return lessonService.list();
     }
 
     @QueryMapping
-    public LessonOutputDto findLesson(@Argument Long id) {
+    public Lesson findLesson(@Argument Long id) {
         return lessonService.find(id);
+    }
+
+    @QueryMapping
+    public Lesson findLessonBySlug(@Argument String slug) {
+        return lessonService.findBySlug(slug);
     }
 
     @MutationMapping

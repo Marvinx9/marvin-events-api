@@ -14,7 +14,7 @@ public class LessonOutputDto {
     private String description;
     private String video_id;
     private Instant available_at;
-    private Long challenge_id;
-    private Long teacher_id;
+    private ChallengeOutputDto challenge;
+    private TeacherOutputDto teacher;
     private LessonType lesson_type;
 }
