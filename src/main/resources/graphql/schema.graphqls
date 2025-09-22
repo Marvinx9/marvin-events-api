@@ -33,6 +33,28 @@ type lesson {
   teacher: teacher
 }
 
+input SubscriberInput {
+  name: String
+  email: String
+}
+
+input TeacherInput {
+  name: String
+  bio: String
+  avatar_url: String
+}
+
+input LessonInput {
+  title: String
+  slug: String
+  description: String
+  video_id: String
+  lesson_type: ENUM_LESSON
+  available_at: String
+  challenge_id: ID
+  teacher_id: ID
+}
+
 type Query {
   listTeacher: [teacher]
   findTeacher(id: ID!): teacher
@@ -42,15 +64,7 @@ type Query {
 }
 
 type Mutation {
-  createTeacher(name: String!, bio: String, avatar_url: String): teacher
-  createLesson(
-    title: String
-    slug: String
-    description: String
-    video_id: String
-    lesson_type: ENUM_LESSON
-    available_at: String
-    challenge_id: ID
-    teacher_id: ID
-  ): lesson
+  createTeacher(teacher TeacherInput): teacher
+  createSubscriber(subscriber: SubscriberInput): subscriber
+  createLesson(lesson: LessonInput): lesson
 }

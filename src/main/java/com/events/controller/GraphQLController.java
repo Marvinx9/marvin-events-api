@@ -2,7 +2,6 @@ package com.events.controller;
 
 import java.util.List;
 
-import com.events.entities.Lesson;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -10,19 +9,25 @@ import org.springframework.stereotype.Controller;
 
 import com.events.dto.LessonInputDto;
 import com.events.dto.LessonOutputDto;
+import com.events.dto.SubscriberInputDto;
+import com.events.dto.SubscriberOutputDto;
 import com.events.dto.TeacherInputDto;
 import com.events.dto.TeacherOutputDto;
+import com.events.entities.Lesson;
 import com.events.service.LessonService;
+import com.events.service.SubscriberService;
 import com.events.service.TeacherService;
 
 @Controller
 public class GraphQLController {
     private final TeacherService teacherService;
     private final LessonService lessonService;
+    private final SubscriberService subscriberService;
 
-    public GraphQLController(TeacherService teacherService, LessonService lessonService) {
+    public GraphQLController(TeacherService teacherService, LessonService lessonService, SubscriberService subscriberService) {
         this.teacherService = teacherService;
         this.lessonService = lessonService;
+        this.subscriberService = subscriberService;
     }
 
     @QueryMapping
@@ -58,5 +63,10 @@ public class GraphQLController {
     @MutationMapping
     public LessonOutputDto createLesson(@Argument("lesson") LessonInputDto lessonInputDto) {
         return lessonService.create(lessonInputDto);
+    }
+
+    @MutationMapping
+    public SubscriberOutputDto createSubscriber(@Argument("subscriber") SubscriberInputDto subscriberInputDto) {
+        return subscriberService.create(subscriberInputDto);
     }
 }
