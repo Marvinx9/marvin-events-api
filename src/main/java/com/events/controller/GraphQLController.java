@@ -2,6 +2,7 @@ package com.events.controller;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -66,7 +67,7 @@ public class GraphQLController {
     }
 
     @MutationMapping
-    public SubscriberOutputDto createSubscriber(@Argument("subscriber") SubscriberInputDto subscriberInputDto) {
+    public SubscriberOutputDto createSubscriber(@Argument("subscriber") @Valid SubscriberInputDto subscriberInputDto) {
         return subscriberService.create(subscriberInputDto);
     }
 }

@@ -64,7 +64,7 @@ type Query {
 }
 
 type Mutation {
-  createTeacher(teacher TeacherInput): teacher
+  createTeacher(teacher: TeacherInput): teacher
   createSubscriber(subscriber: SubscriberInput): subscriber
   createLesson(lesson: LessonInput): lesson
 }
